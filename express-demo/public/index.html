@@ -12,56 +12,62 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="d-flex">
-    <div class="w-50 m-auto border border-primary border-2 rounded-3">
+  <div class="vh-100">
+    <div class="d-flex h-50">
+      <div class="w-50 mx-auto border border-primary border-2">
       <h2 class="h1 text-center my-3">Ingresar Producto</h2>
-      <form class="px-5" action="/productos/" method="post">
+      <form class="px-5">
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" name="nombre" class="form-control" placeholder="Nombre del Producto">
+          <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre del Producto">
         </div>
         <div class="form-group">
           <label for="stock">Stock</label>
-          <input type="number" name="stock" class="form-control" placeholder="Stock del Producto">
+          <input type="number" name="stock" class="form-control" id="stock" placeholder="Stock del Producto">
         </div>
         <div class="form-group">
           <label for="precio">Precio</label>
-          <input type="number" name="precio" class="form-control" placeholder="Precio del Producto">
+          <input type="number" name="precio" class="form-control" id="precio" placeholder="Precio del Producto">
         </div>
-        <div class="d-flex justify-content-between my-3">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <input type="button" class="btn btn-success" onclick="location.href='/productos/';" value="Ver Productos" />
+        <div class="d-flex justify-content-end my-3">
+          <button id="aniadirProducto" type="submit" class="btn btn-primary">Añadir Producto</button>
         </div>
       </form>
     </div>
   </div>
-  <div id="productosContainer">
-    <!-- <div class="w-50 mx-auto border border-primary border-2 rounded-3">
-            <h2 class="h1 text-center my-3">Lista de Productos</h2>
-            <div>
-              <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Stock</th>
-                  <th scope="col">Precio</th>
-                </tr>
-              </thead>
-            <tbody>
-              <div></div>
-            </tbody>
-            </table>
-            <div class="d-flex justify-content-end">
-            <input type="button" class="btn btn-success m-3" onclick="location.href='/';" value="Ingresar Productos" />
-          </div>
-        </div>
-      </div> -->
-      <div class="w-50 mx-auto border border-primary border-2 rounded-3">
-        <h2 class="h1 text-center m-3">No hay productos</h2>
-      </div>
-      
+  <div class="d-flex h-50">
+    <div id="productosTabla" class="w-50 mx-auto border border-primary border-2 overflow-auto" style="display: none;">
+      <h2 class="h1 text-center my-3">Lista de Productos</h2>
+      <table class="table">
+        <thead><tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Precio</th>
+        </tr></thead>
+        <tbody id="tbody">
+          <div></div>
+        </tbody>
+      </table>
     </div>
+    <div id="noHayProductos" class="w-50 mx-auto border border-primary border-2">
+      <h2 class="h1 text-center m-3">No hay productos</h2>
+    </div>
+    <div id="ventanaChat" class="w-50 mx-auto border border-primary border-2 overflow-auto">
+      <h2 class="h1 text-center my-3">Chat</h2>
+      <div id="contenedorChat" class="h-75">
+        <div id="messages" class="p-2 h-75 overflow-auto"></div>
+        <form class ="h-25" onsubmit="return addMessage(this)">
+          <div class="h-100 d-flex justify-content-between align-items-center">
+            <input type="text"  class="d-inline form-control" style="width: 32%;"  id="username" placeholder="Email" >
+            <input type="text"  class="d-inline form-control" style="width: 32%;"  id="texto" placeholder="Cuéntanos algo...">
+            <input id="enviar" type="submit" class="d-inline form-control" style="width: 32%;" value="Enviar">
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="static/index.js"></script>
 </body>
 </html>
